@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, jsonify
+from flask import Flask, redirect, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 import random
 import string
@@ -19,7 +19,7 @@ def generate_short_code():
 
 @app.route("/")
 def home():
-    return "URL Shortener is alive! 🚀"
+    return render_template("index.html")
 
 @app.route("/shorten", methods=["POST"])
 def shorten():
